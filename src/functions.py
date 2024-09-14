@@ -1,5 +1,5 @@
 from astropy.coordinates import SkyCoord, Angle
-from astropy.table import Table, join, vstack
+from astropy.table import Table, join
 from astropy.time import Time
 from astropy import units as u
 from astropy.utils.metadata import MergeConflictWarning

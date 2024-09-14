@@ -1,11 +1,15 @@
 # classes.py
 from astropy.coordinates import SkyCoord, Angle
 from astropy.table import Table
-from functions import get_stars_in_region
+from .functions import get_stars_in_region
+
+
+
 
 class RegionStars:
     def __init__(self, coord: SkyCoord, radius: Angle) -> None:
-        self.stars = get_stars_in_region(coord, radius)
+        stars = get_stars_in_region(coord, radius)
+        return stars
 
     def star(self, gaiaID):
         stars = self.stars
