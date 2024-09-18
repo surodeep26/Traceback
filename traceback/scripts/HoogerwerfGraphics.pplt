@@ -1,0 +1,54 @@
+#!/usr/bin/pyxplot
+reset
+
+# This script will produce Figure 3 from Hoogerwerf et al.: On the origin of ..., A&A 365, 49-77 (2001)
+
+fileout=0
+
+data="Hoogerwerf"
+datafile=data + ".out"
+datapath="../" + datafile
+
+if (fileout==0) {
+	set terminal X11_singleWindow
+} else {
+	set terminal png
+	set output '%s.png'%(data)
+}
+
+set multiplot
+set width 10
+set size square
+set fontsize 1.3
+
+# bin width for minimum distance [pc]
+bwidth1=0.25
+
+# bin width for corresponding flight times [Myr]
+bwidth2=0.05
+
+# Minimum separation in parsec
+histogram f() datapath binwidth bwidth1
+
+# Elapsed to since minimum sep. in million years
+histogram g() datapath using (-$2*1e-6) binorigin 0.005 binwidth bwidth2
+
+set key top left
+set ylabel "$\#$"
+
+set xlabel "$D_{min}(\tau_0)$ [pc]"
+set title "Distribution of minmum separations between $\zeta$ Oph and PSR J1932+1059"
+set xtics 0,2,10
+set mxtics 0.5
+set ytics 50
+set mytics 10
+plot [0:10] [:] f(x)*bwidth1 with boxes color rgb(0,1,0) linewidth 0 fc rgb(0,1,0) title 'Hoogerwerf 2001'
+
+set xlabel "$\tau_0$ [Myr]"
+set title "Corresponding flight times"
+set xtics 0.2
+set mxtics 0.05
+set ytics 200
+set mytics 50
+set origin 14,0
+plot [0.6:1.4] [:] g(x)*bwidth2 w boxes c rgb(1,0,0) lw 0 fc rgb(1,0,0) title 'Hoogerwerf 2001'

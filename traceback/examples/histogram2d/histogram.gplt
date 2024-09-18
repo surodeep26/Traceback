@@ -1,0 +1,59 @@
+#!/usr/bin/gnuplot -persist
+reset
+
+# This script will produce Figure 2 from Tetzlaff et al.: Birth places of ..., MNRAS 402, 2369-2387 (2010)
+# Contrary to the original picture this script will not use
+# contours but a so called heat map
+
+fileout=0
+
+datafile="Tetzlaff.hist"
+datapath="../../" . datafile
+
+if (fileout==0) {
+	set term qt 0 size 800,600 enhanced font "Arial,14"
+} else {
+	set term png
+}
+
+set size .95, 1
+set title "τ - d_{min} - histogram" font "Arial,18"
+set xlabel "d_{min} [pc]"
+set ylabel "τ [Myr]"
+# Check the data file for the unit of column 3!!!
+#set cblabel "probability per bin [10^{-2} %]"
+set cblabel "relative frequency density [ (kpc∙Myr)^{-1} ]"
+set xtics 10
+set mxtics 10
+set ytics 0.5
+set mytics 5
+
+#set contour base
+#set cntrparam bspline
+#set cntrparam levels 10
+#unset surface
+set nokey
+#set view map
+set pm3d map
+
+#set palette rgbformulae 33,13,10
+#set palette @MATLAB
+set palette defined (0  0.0 0.0 0.5, \
+                     1  0.0 0.0 1.0, \
+                     2  0.0 0.5 1.0, \
+                     3  0.0 1.0 1.0, \
+                     4  0.5 1.0 0.5, \
+                     5  1.0 1.0 0.0, \
+                     6  1.0 0.5 0.0, \
+                     7  1.0 0.0 0.0, \
+                     8  0.5 0.0 0.0 )
+
+if (fileout==1) {
+	set output 'contournina.png'
+}
+
+splot \
+  datapath w pm3d
+
+# The next command causes the plot to take some time
+set pm3d interpolate 0,0; replot

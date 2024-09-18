@@ -1,0 +1,866 @@
+------------------------------------------------------------------------
+r71 | ifg | 2016-09-07 08:58:23 +0200 (Mi, 07. Sep 2016) | 4 Zeilen
+Geänderte Pfade:
+   M /trunk/ChangeLog
+   M /trunk/examples/histogram/histogram.cpp
+   M /trunk/examples/histogram/histogram.gplt
+
+o examples/histogram: draw an unscaled histogram online
+o Do not divide the frequency in the histogram through the bin size to get the same scale as in Tetzlaff et al.
+o Add some progress information when creating the histogram
+o Interpolate the histogram graphic by default because it is much faster when using gnuplot v6
+------------------------------------------------------------------------
+r70 | ifg | 2016-09-05 12:39:26 +0200 (Mo, 05. Sep 2016) | 2 Zeilen
+Geänderte Pfade:
+   M /trunk/ChangeLog
+   M /trunk/common/tracethread.cpp
+   M /trunk/examples/trace/trace.cpp
+
+o Print galactic coordinates of successful orbits instead of equatorial
+o Update ChangeLog
+------------------------------------------------------------------------
+r69 | ifg | 2016-09-05 12:08:47 +0200 (Mo, 05. Sep 2016) | 1 Zeile
+Geänderte Pfade:
+   M /trunk
+   M /trunk/examples/examples.pro
+   A /trunk/examples/histogram
+   A /trunk/examples/histogram/Readme.txt
+   A /trunk/examples/histogram/histogram.cpp
+   A /trunk/examples/histogram/histogram.gplt
+   A /trunk/examples/histogram/histogram.pro
+   M /trunk/examples/trace/trace.cpp
+
+o New example 'histogram' to produce the so-called contour plot from Tetzlaff et al.
+------------------------------------------------------------------------
+r68 | ifg | 2016-08-31 12:18:07 +0200 (Mi, 31. Aug 2016) | 3 Zeilen
+Geänderte Pfade:
+   M /trunk/examples/OrbitTypes/readme.txt
+   A /trunk/examples/orbits/Orbit3d.gplt
+   A /trunk/examples/orbits/OrbitXY.gplt
+   M /trunk/examples/orbits/orbits.cpp
+   A /trunk/examples/orbits/readme.txt
+
+o Add comments to example/orbits
+o Add gnuplot scripts for plotting orbits
+o Some code cleanup
+------------------------------------------------------------------------
+r67 | ifg | 2016-08-30 11:13:55 +0200 (Di, 30. Aug 2016) | 2 Zeilen
+Geänderte Pfade:
+   M /trunk/examples/OrbitTypes/OrbitTypes.pro
+   M /trunk/examples/OrbitTypes/orbittypes.cpp
+   A /trunk/examples/OrbitTypes/readme.txt
+   A /trunk/examples/examples.pri
+   M /trunk/examples/orbits/orbits.pro
+   M /trunk/examples/trace/trace.pro
+
+o Simplify *.pro files in examples by including the major part from a common file
+o OrbitType: code cleanup and more comments, add readme
+------------------------------------------------------------------------
+r66 | ifg | 2016-08-29 12:56:44 +0200 (Mo, 29. Aug 2016) | 2 Zeilen
+Geänderte Pfade:
+   M /trunk/common/common.pro
+   M /trunk/examples/OrbitTypes/OrbitTypes.pro
+   M /trunk/examples/orbits/orbits.pro
+   M /trunk/examples/trace/trace.pro
+
+o Rename the static library from 'tracethread' to 'traceback'
+o Add dependency of all examples on libtraceback
+------------------------------------------------------------------------
+r65 | ifg | 2016-08-29 12:31:17 +0200 (Mo, 29. Aug 2016) | 1 Zeile
+Geänderte Pfade:
+   M /trunk/examples/OrbitTypes/OrbitTypes.pro
+   D /trunk/examples/OrbitTypes/main.cpp
+   A /trunk/examples/OrbitTypes/orbittypes.cpp (von /trunk/examples/OrbitTypes/main.cpp:64)
+   D /trunk/examples/orbits/main.cpp
+   A /trunk/examples/orbits/orbits.cpp (von /trunk/examples/orbits/main.cpp:64)
+   M /trunk/examples/orbits/orbits.pro
+   D /trunk/examples/trace/main.cpp
+   A /trunk/examples/trace/trace.cpp (von /trunk/examples/trace/main.cpp:64)
+   M /trunk/examples/trace/trace.pro
+
+o Give the many main.cpp other names
+------------------------------------------------------------------------
+r64 | ifg | 2016-08-29 12:26:34 +0200 (Mo, 29. Aug 2016) | 1 Zeile
+Geänderte Pfade:
+   M /trunk/examples/OrbitTypes/main.cpp
+   M /trunk/examples/examples.pro
+   A /trunk/examples/orbits
+   A /trunk/examples/orbits/main.cpp (von /trunk/examples/OrbitTypes/main.cpp:63)
+   A /trunk/examples/orbits/orbits.pro
+
+o New example 'orbits'
+------------------------------------------------------------------------
+r63 | ifg | 2016-08-29 11:56:04 +0200 (Mo, 29. Aug 2016) | 2 Zeilen
+Geänderte Pfade:
+   A /trunk/examples/OrbitTypes
+   A /trunk/examples/OrbitTypes/OrbitTypes.pro
+   A /trunk/examples/OrbitTypes/main.cpp (von /trunk/examples/trace/main.cpp:60)
+   M /trunk/examples/examples.pro
+   M /trunk/examples/trace/main.cpp
+
+o Create new example for Valeri (OrbitTypes)
+o Revert changes to main() from traceback
+------------------------------------------------------------------------
+r62 | ifg | 2016-08-29 11:29:50 +0200 (Mo, 29. Aug 2016) | 1 Zeile
+Geänderte Pfade:
+   M /trunk/Doxyfile
+
+o New directory structure
+------------------------------------------------------------------------
+r61 | ifg | 2016-08-29 11:20:55 +0200 (Mo, 29. Aug 2016) | 1 Zeile
+Geänderte Pfade:
+   M /trunk
+   M /trunk/common
+   M /trunk/examples
+   M /trunk/examples/trace
+
+o Update ignore patterns
+------------------------------------------------------------------------
+r60 | ifg | 2016-08-29 11:13:04 +0200 (Mo, 29. Aug 2016) | 1 Zeile
+Geänderte Pfade:
+   A /trunk/traceback.pro
+
+o New top level qmake file
+------------------------------------------------------------------------
+r59 | ifg | 2016-08-29 11:12:25 +0200 (Mo, 29. Aug 2016) | 1 Zeile
+Geänderte Pfade:
+   D /trunk/MatNorm.h
+   D /trunk/Matrix.h
+   D /trunk/VecNorm.h
+   D /trunk/Vector.h
+   A /trunk/common
+   A /trunk/common/MatNorm.h (von /trunk/MatNorm.h:58)
+   A /trunk/common/Matrix.h (von /trunk/Matrix.h:58)
+   A /trunk/common/VecNorm.h (von /trunk/VecNorm.h:58)
+   A /trunk/common/Vector.h (von /trunk/Vector.h:58)
+   A /trunk/common/common.pro (von /trunk/traceback.pro:58)
+   A /trunk/common/rng.h (von /trunk/rng.h:58)
+   A /trunk/common/starparam.cpp (von /trunk/starparam.cpp:58)
+   A /trunk/common/starparam.h (von /trunk/starparam.h:58)
+   A /trunk/common/tracethread.cpp (von /trunk/tracethread.cpp:58)
+   A /trunk/common/tracethread.h (von /trunk/tracethread.h:58)
+   A /trunk/examples
+   A /trunk/examples/examples.pro
+   A /trunk/examples/trace
+   A /trunk/examples/trace/main.cpp (von /trunk/main.cpp:58)
+   A /trunk/examples/trace/trace.pro
+   D /trunk/main.cpp
+   D /trunk/rng.h
+   D /trunk/starparam.cpp
+   D /trunk/starparam.h
+   D /trunk/traceback.pro
+   D /trunk/tracethread.cpp
+   D /trunk/tracethread.h
+
+o New directory structure
+------------------------------------------------------------------------
+r58 | ifg | 2016-08-29 10:47:42 +0200 (Mo, 29. Aug 2016) | 1 Zeile
+Geänderte Pfade:
+   M /trunk/starparam.cpp
+
+o StarGalacticParam::printInfo(): also print orbit type
+------------------------------------------------------------------------
+r57 | ifg | 2016-08-25 10:40:14 +0200 (Do, 25. Aug 2016) | 2 Zeilen
+Geänderte Pfade:
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+
+o Fix coordsInertial(), which is still cheating
+o Update comments and rename some variables in coordinate transformations to be more self-explaining
+------------------------------------------------------------------------
+r56 | ifg | 2016-08-23 08:55:52 +0200 (Di, 23. Aug 2016) | 1 Zeile
+Geänderte Pfade:
+   M /trunk/ChangeLog
+   M /trunk/starparam.cpp
+
+o Remove debug message in StarGalacticParam::coordsInertial()
+------------------------------------------------------------------------
+r55 | ifg | 2016-08-16 13:13:14 +0200 (Di, 16. Aug 2016) | 5 Zeilen
+Geänderte Pfade:
+   M /trunk/ChangeLog
+   M /trunk/Doxyfile
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   M /trunk/traceback.conf
+   M /trunk/tracethread.cpp
+   M /trunk/tracethread.h
+
+o Abort program if coordType in input file is unknown
+o New function StarGalacticParam::coordsInertial(), but cheat in case of epicycles
+o Make extensive use of coordsHeliocentric() and coordsInertial()
+o Add new bool parameter 'heliocentric' to a couple of functions
+o traceback.conf: add epicycle constants from Fuchs et al.
+------------------------------------------------------------------------
+r54 | ifg | 2016-08-15 15:30:39 +0200 (Mo, 15. Aug 2016) | 2 Zeilen
+Geänderte Pfade:
+   M /trunk/Doxyfile
+   M /trunk/input.txt
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   M /trunk/tracethread.cpp
+
+o New function StarGalacticParam::getGalactic()
+o New values for pulsar PSR J1932+1059
+------------------------------------------------------------------------
+r53 | ifg | 2016-08-11 13:42:05 +0200 (Do, 11. Aug 2016) | 5 Zeilen
+Geänderte Pfade:
+   M /trunk/input.txt
+   M /trunk/main.cpp
+   M /trunk/scripts/Histograms.pplt
+   M /trunk/scripts/HoogerwerfGraphics.pplt
+   M /trunk/scripts/NinaGraphics.pplt
+   A /trunk/scripts/ScatterRADec.pplt
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   M /trunk/tracethread.cpp
+
+o New function StarGalacticParam::getEquatorial()
+o Add coordinates of close encounter to the output file
+o Add a script for plotting Dec vs. RA of close encounters
+o Modify HoogerwerfGraphics.pplt and NinaGraphics.pplt to produce two histograms on a single canvas
+o Add new RV for zeta Oph (Tamara Zehe)
+------------------------------------------------------------------------
+r52 | ifg | 2016-07-29 13:10:07 +0200 (Fr, 29. Jul 2016) | 3 Zeilen
+Geänderte Pfade:
+   M /trunk/ChangeLog
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+
+o Change argument type of StarGalacticParam::lbRFromXYZ() to Vector
+o Fix pmFromVelocities() for the use of heliocentric coordinates
+o Drop coordsInertialSystem() and coordsRotatingSystem()
+------------------------------------------------------------------------
+r51 | ifg | 2016-07-28 10:50:13 +0200 (Do, 28. Jul 2016) | 8 Zeilen
+Geänderte Pfade:
+   M /trunk/ChangeLog
+   M /trunk/Vector.h
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+
+o New function StarGalacticParam::coordsHeliocentric() that will return heliocentric location and velocity by taking Sun's orbit into account
+o Modify getDistance() and  getSpaceVelocities() to use the new function
+o Fix printXYZ() and printUVW() for heliocentric values
+o New function StarGalacticParam::getRadialVelocity()
+o Modify constructor of StarGalacticParam so that it can be used for the Sun
+o It is now understood that the origin of the coordinates is always the Sun, and not the LSR
+o New constructor for Vector to initialize components from an array
+o Use detailed change log
+------------------------------------------------------------------------
+r50 | ifg | 2016-07-20 12:51:20 +0200 (Mi, 20. Jul 2016) | 1 Zeile
+Geänderte Pfade:
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+
+o Do not correct space velocities for motion of LSR and Sun in case of epicyclic orbits
+------------------------------------------------------------------------
+r49 | ifg | 2016-06-24 12:19:21 +0200 (Fr, 24. Jun 2016) | 2 Zeilen
+Geänderte Pfade:
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+
+o Completely undo the correction of space velocities before calculating epicycles
+o Update documentation about the coordinate systems used
+------------------------------------------------------------------------
+r48 | ifg | 2016-06-21 08:48:31 +0200 (Di, 21. Jun 2016) | 1 Zeile
+Geänderte Pfade:
+   M /trunk/ChangeLog
+
+o Update ChangeLog
+------------------------------------------------------------------------
+r47 | ifg | 2016-06-20 10:24:21 +0200 (Mo, 20. Jun 2016) | 1 Zeile
+Geänderte Pfade:
+   M /trunk/starparam.h
+
+o Correct documentation
+------------------------------------------------------------------------
+r46 | ifg | 2016-06-17 14:25:40 +0200 (Fr, 17. Jun 2016) | 4 Zeilen
+Geänderte Pfade:
+   M /trunk/Doxyfile
+   M /trunk/main.cpp
+   M /trunk/simulation.conf
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   M /trunk/traceback.conf
+   M /trunk/tracethread.cpp
+
+o Support new orbit type 'Linear' with constant motion through space
+o The new orbit type needs a change in the config file
+o Do not include the source code into the documentation
+o Minor updates for documentation
+------------------------------------------------------------------------
+r45 | ifg | 2016-06-16 12:41:54 +0200 (Do, 16. Jun 2016) | 2 Zeilen
+Geänderte Pfade:
+   M /trunk/tracethread.cpp
+   M /trunk/tracethread.h
+
+o TraceThread: use QList for list of stars instead of **
+o Do not limit the number of stars per thread any more
+------------------------------------------------------------------------
+r44 | ifg | 2016-06-15 13:31:00 +0200 (Mi, 15. Jun 2016) | 2 Zeilen
+Geänderte Pfade:
+   M /trunk/main.cpp
+
+o Use QList for list of threads
+o Add comments to main.cpp
+------------------------------------------------------------------------
+r43 | ifg | 2016-06-15 09:30:25 +0200 (Mi, 15. Jun 2016) | 6 Zeilen
+Geänderte Pfade:
+   M /trunk
+   M /trunk/Doxyfile
+   M /trunk/main.cpp
+   M /trunk/scripts/Histograms.pplt
+   M /trunk/simulation.conf
+   M /trunk/simulation.txt
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   M /trunk/traceback.conf
+
+o Change default name of output file to match configuration file
+o Translate the German output to English
+o Change Histograms.pplt to a more general format
+o Add some noise to the test stars
+o Correct printing the start values
+o Add sources to documentation
+------------------------------------------------------------------------
+r42 | ifg | 2016-06-03 09:48:34 +0200 (Fr, 03. Jun 2016) | 5 Zeilen
+Geänderte Pfade:
+   M /trunk/ChangeLog
+   M /trunk/main.cpp
+   A /trunk/simulation.conf
+   A /trunk/simulation.txt
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+
+o StarGalacticParam: fix PMfromVelocities() by undoing the LSR  and Sun's peculiar motion correction of the space velocities before calculating proper motions
+o StarGalacticParam: new function printPM() for formatted output of proper motion for the active time
+o Add equatorial coordinates for test stars and association
+o Add extra input and configuration files for simulation
+o Fix some documentation
+------------------------------------------------------------------------
+r41 | ifg | 2015-07-31 11:35:17 +0200 (Fr, 31. Jul 2015) | 5 Zeilen
+Geänderte Pfade:
+   M /trunk/ChangeLog
+   M /trunk/input.txt
+   M /trunk/main.cpp
+   M /trunk/scripts
+   A /trunk/scripts/Histograms.pplt
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   M /trunk/traceback.conf
+   M /trunk/tracethread.cpp
+   M /trunk/tracethread.h
+
+o Add a pyxplot script for histograms of minimum distances and corresponding flight times without special scaling
+o Read the criterion "Tetzlaff" or "Hoogerwerf" from config file
+o Do not overwrite existing output files
+o New private function TraceThread::getSuccessful() will return a formatted string containing the varied observables
+o Some output formatting
+------------------------------------------------------------------------
+r40 | ifg | 2015-07-23 14:37:59 +0200 (Do, 23. Jul 2015) | 6 Zeilen
+Geänderte Pfade:
+   M /trunk/ChangeLog
+   M /trunk/input.txt
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   M /trunk/traceback.conf
+   M /trunk/tracethread.cpp
+
+o New function StarGalacticParam::resetODE() and call it before each new orbit
+o Alter eqnOfMotion() to consider the distance between Sun and galactic plane
+o Read initial step size from config file
+o Add some co-ordinates for simulation
+o Add some test code for integrating forward in time
+o Change printEquatorial() so that deg2hms() and deg2dms() is used
+------------------------------------------------------------------------
+r39 | ifg | 2015-07-17 14:32:58 +0200 (Fr, 17. Jul 2015) | 2 Zeilen
+Geänderte Pfade:
+   M /trunk/ChangeLog
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+
+o New static StarParam functions: deg2dms(), deg2hms(), dms2deg(), hms2deg()
+o Use new functions for reading values from input file and and printing values
+------------------------------------------------------------------------
+r38 | ifg | 2015-07-16 12:06:10 +0200 (Do, 16. Jul 2015) | 4 Zeilen
+Geänderte Pfade:
+   M /trunk/ChangeLog
+   M /trunk/input.txt
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   M /trunk/tracethread.cpp
+   M /trunk/tracethread.h
+
+o Add new parameters for some stars (from Ralph and Nina)
+o Remove some old code already commented out for some time
+o Put the varied parameters with which the orbits were successful into the results file
+o Some cosmetic changes for legible output
+------------------------------------------------------------------------
+r37 | ifg | 2015-07-09 12:45:03 +0200 (Do, 09. Jul 2015) | 5 Zeilen
+Geänderte Pfade:
+   M /trunk/input.txt
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   M /trunk/traceback.conf
+   M /trunk/traceback.pro
+   M /trunk/tracethread.cpp
+   M /trunk/tracethread.h
+
+o Add some new parameters for ζ Oph and PSR B1929+10
+o Drop the plethora of command line switches and use the configuration file instead
+o Also record number of steps and step width in results file
+o Synchronize verbose output with the selection criterion (Nina or Hoogerwerf)
+o Record minimum distance and time for all orbits, not just for those that fall into the selection criterion
+------------------------------------------------------------------------
+r36 | ifg | 2015-07-06 11:52:17 +0200 (Mo, 06. Jul 2015) | 4 Zeilen
+Geänderte Pfade:
+   M /trunk
+   A /trunk/ChangeLog
+   D /trunk/HistMinSep.pplt
+   D /trunk/MinSepHist.gplt
+   D /trunk/MinSepTimesHist.gplt
+   A /trunk/scripts
+   A /trunk/scripts/HistMinSep.pplt (von /trunk/HistMinSep.pplt:35)
+   A /trunk/scripts/HoogerwerfGraphics.pplt
+   A /trunk/scripts/MinSepHist.gplt (von /trunk/MinSepHist.gplt:35)
+   A /trunk/scripts/MinSepTimesHist.gplt (von /trunk/MinSepTimesHist.gplt:35)
+   A /trunk/scripts/NinaContour.pplt
+   A /trunk/scripts/NinaGraphics.pplt
+
+o Move plotting scripts to a subdirectory
+o Add plotting scripts to reproduce Hoogerwerf and Tetzlaff graphics
+o Add ChangeLog
+o Ignore PNG files in the main directory
+------------------------------------------------------------------------
+r35 | ifg | 2014-11-13 11:45:42 +0100 (Do, 13. Nov 2014) | 2 Zeilen
+Geänderte Pfade:
+   M /trunk/HistMinSep.pplt
+   M /trunk/MatNorm.h
+   M /trunk/Matrix.h
+   M /trunk/VecNorm.h
+   M /trunk/Vector.h
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   M /trunk/tracethread.cpp
+
+o Added lots of documentation for Vector and Matrix classes
+o Changed StarGalacticParam::getSpaceVelocity() and printUVW() to optionally give heliocentric velocities
+------------------------------------------------------------------------
+r34 | ifg | 2014-10-02 11:07:55 +0200 (Do, 02. Okt 2014) | 4 Zeilen
+Geänderte Pfade:
+   M /trunk/input.txt
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   M /trunk/tracethread.cpp
+
+o Support new input type GalacticPM handling proper motions in galactic coordinates to finally reproduce the calculations from Hoogerwerf
+o Output a bell character at program exit
+o New functions StarGalacticParam::getDistance() and StarGalacticParam::getSpaceVelocity()
+o Modify TraceThread::run() such that the association gets its parameters varied, too
+------------------------------------------------------------------------
+r33 | ifg | 2014-09-24 09:34:52 +0200 (Mi, 24. Sep 2014) | 8 Zeilen
+Geänderte Pfade:
+   M /trunk/input.txt
+   M /trunk/main.cpp
+   M /trunk/maxwell.pplt
+   M /trunk/rng.h
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   M /trunk/traceback.conf
+   M /trunk/tracethread.cpp
+   M /trunk/tracethread.h
+
+o Some test calculations to reproduce Nina's results, little success, so far
+o Detect the number of available processors at runtime on Linux
+o Add possibility to prepend a hash sign to some print*() functions so they can write to the result files
+o Add some more info to the result files
+o Always add the HIP Id when printing coordinates
+o Correct some typos in comments
+o Extend StarGalacticParam::printConstants() for all constants
+o Add a new counter variable to Output class for the orbits with the stars close to the association
+------------------------------------------------------------------------
+r32 | ifg | 2014-09-09 09:18:12 +0200 (Di, 09. Sep 2014) | 1 Zeile
+Geänderte Pfade:
+   M /trunk/maxwell.pplt
+   M /trunk/starparam.cpp
+
+o Finally understanding Nina's approach to the Maxwell distribution, but still puzzled
+------------------------------------------------------------------------
+r31 | ifg | 2014-09-08 11:07:29 +0200 (Mo, 08. Sep 2014) | 6 Zeilen
+Geänderte Pfade:
+   M /trunk/input.txt
+   M /trunk/main.cpp
+   M /trunk/maxwell.pplt
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+
+o Make readConfig() and writeConfig static members of StarGalacticParam
+o Add some code to test the Maxwell distribution of the space velocities of neutron stars
+o Add Nina's formula for calculating a Maxwell PDF, wherever this came from
+o Get rid of StarGalacticParam's member k, use the static function StarGalacticParam::auyr2kms() instead
+o Fix a bug in generating radial velocities for neutron stars
+o Add a line in input.txt for test purposes
+------------------------------------------------------------------------
+r30 | ifg | 2014-08-01 12:41:18 +0200 (Fr, 01. Aug 2014) | 9 Zeilen
+Geänderte Pfade:
+   M /trunk/input.txt
+   M /trunk/rng.h
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   M /trunk/tracethread.cpp
+
+o Support new input type GalacticUVW
+o Modify Rng::gaussian() to limit the interval of the random number in terms of sigma (not yet used)
+o When varying values, limit possible parallaxes between 0.1pc and 5kpc
+o Avoid infinite loops when varying values, barf instead
+o Prettify some output
+o Drop the l and b attributes from StarGalacticParam, only keep x, y, and z for position
+o New static function StarGalacticParam::galacticFromEquatorial()
+o New function StarGalacticParam::printEquatorial()
+o Change initLB() to return a two component vector and modify its algorithm to utilize atan2()
+------------------------------------------------------------------------
+r29 | ifg | 2014-07-25 13:25:19 +0200 (Fr, 25. Jul 2014) | 1 Zeile
+Geänderte Pfade:
+   M /trunk/starparam.cpp
+
+o Make trace compile with Qt5
+------------------------------------------------------------------------
+r28 | ifg | 2014-07-25 12:52:29 +0200 (Fr, 25. Jul 2014) | 1 Zeile
+Geänderte Pfade:
+   M /trunk/tracethread.cpp
+
+o Print info together with coordinates
+------------------------------------------------------------------------
+r27 | ifg | 2014-07-25 12:51:24 +0200 (Fr, 25. Jul 2014) | 4 Zeilen
+Geänderte Pfade:
+   M /trunk/input.txt
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+
+o Prepare for support of different input formats
+o New function StarGalacticParam::printInfo()
+o New function StarParam::useMaxwell() for querying the maxwell attribute
+o Add some documentation
+------------------------------------------------------------------------
+r26 | ifg | 2014-07-23 12:29:57 +0200 (Mi, 23. Jul 2014) | 4 Zeilen
+Geänderte Pfade:
+   M /trunk/Doxyfile
+   M /trunk/main.cpp
+   M /trunk/rng.h
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+
+o Move handling the neutron star special case from StarParam::varyAllValues() to StarParam::VaryValue()
+o Remove the part from main.cpp that was used to test the Maxwell generator
+o Change documentation to contain tree view instead of index
+o Document StarParam::Uncertainty
+------------------------------------------------------------------------
+r25 | ifg | 2014-07-22 14:48:37 +0200 (Di, 22. Jul 2014) | 5 Zeilen
+Geänderte Pfade:
+   M /trunk/input.txt
+   M /trunk/main.cpp
+   A /trunk/maxwell.pplt
+   M /trunk/rng.h
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+
+o Extend the random generator to support Maxwell distributions and random signs
+o Add a pyxplot script for showing Maxwell distributions
+o Add a column to the input file to indicate whether a Maxwell distribution for space velocities should be used
+o Add a corresponding attribute to the StarParam class
+o Change StarParam::varyAllValues() to simulate velocities of neutron stars
+------------------------------------------------------------------------
+r24 | ifg | 2014-07-17 14:45:21 +0200 (Do, 17. Jul 2014) | 1 Zeile
+Geänderte Pfade:
+   M /trunk/HistMinSep.pplt
+   M /trunk/MinSepHist.gplt
+   M /trunk/MinSepTimesHist.gplt
+   M /trunk/main.cpp
+   M /trunk/starparam.h
+   M /trunk/tracethread.cpp
+
+o Try to reproduce Hoogerwerf's results and Nina's reproduction of Hoogerwerf's results
+------------------------------------------------------------------------
+r23 | ifg | 2014-04-14 11:22:28 +0200 (Mo, 14. Apr 2014) | 11 Zeilen
+Geänderte Pfade:
+   M /trunk
+   A /trunk/HistMinSep.pplt
+   M /trunk/input.txt
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   A /trunk/traceback.conf
+   M /trunk/tracethread.cpp
+   M /trunk/tracethread.h
+
+o Add script to draw histograms using PyxPlot
+o Read some numerical constants from config file using QSettings
+o Add input parameters for zeta Oph, Upper Sco, and PSR something to reproduce Hoogerwerf and Nina
+o Change the behavior of the threads so that a 'third' star is treated as an association from which star 1 and 2 may have originated
+o Add a function to calculate galactic coordinates from cartesian ones
+o Add a function to calculate equatorial coordinates from galactic ones
+o Add a function to convert proper motions from galactic to equatorial coordinates
+o Add a function to calculate proper motions from space velocities
+o Add a function to calculate the orbit for a given time point independent of the previous history
+o Make StarGalacticParam::initT() static
+o Modify Output::updateFile() in such a way that two more distances per time point can be recorded to file
+------------------------------------------------------------------------
+r22 | ifg | 2014-03-17 11:35:14 +0100 (Mo, 17. Mär 2014) | 5 Zeilen
+Geänderte Pfade:
+   M /trunk
+   A /trunk/MinSepHist.gplt
+   A /trunk/MinSepTimesHist.gplt
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+   M /trunk/tracethread.cpp
+   M /trunk/tracethread.h
+
+o Extend the Output class to generate an output file that contains (for the time being) minimum separation and corresponding time for each simulation
+o Add command line option for output file
+o Add Gnuplot scripts to show histograms of minimum separation distribution and corresponding flight times
+o Revert the modification of the vertical oscillation frequency 'nu'
+o Modify TraceThread::run() so that it is in accordance Hoogerwerf and Tetzlaff
+------------------------------------------------------------------------
+r21 | ifg | 2014-02-28 15:32:35 +0100 (Fr, 28. Feb 2014) | 1 Zeile
+Geänderte Pfade:
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+
+o Prepare for a new function coordsHeliocentric(), not implemented, yet
+------------------------------------------------------------------------
+r20 | ifg | 2013-12-17 08:17:52 +0100 (Di, 17. Dez 2013) | 3 Zeilen
+Geänderte Pfade:
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+
+o Add coordinate transformation from rotating to inertial system and vice versa
+o Add a (commented out) test case for Upper scorpius
+o Temporarily correct vertical frequency nu which seems to fit better to the integrated values
+------------------------------------------------------------------------
+r19 | ifg | 2013-11-19 12:22:41 +0100 (Di, 19. Nov 2013) | 4 Zeilen
+Geänderte Pfade:
+   M /trunk
+   M /trunk/input.txt
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   M /trunk/tracethread.cpp
+   M /trunk/tracethread.h
+
+o Put the test object a little closer (0.1 pc)
+o Make the type of orbit an constant attribute of StarGalacticParam to be set in the constructor
+o New function progressOrbit() which advances the orbit by the specified time using the appropriate function according to the orbit type
+o Let epicyclicOrbit() return GSL_SUCCESS
+------------------------------------------------------------------------
+r18 | ifg | 2013-11-18 11:56:18 +0100 (Mo, 18. Nov 2013) | 7 Zeilen
+Geänderte Pfade:
+   M /trunk/input.txt
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+
+o Add a test object close to the sun with no proper motion nor radial velocity
+o Make distance of sun from the galactic center as well as its velocity a constant variable
+o Rewrite StarGalacticParam::epicyclicOrbit() for better readability
+o Add/correct some comments about coordinate transformation
+o Correct bug in eqnOfMotion() and jacEqnOfMotion()
+o Temporarily change the main program to compare epicycles and integrated EOM orbits
+o Add some code to transform coordinates from epicycles to an inertial system
+------------------------------------------------------------------------
+r17 | ifg | 2013-11-08 08:53:17 +0100 (Fr, 08. Nov 2013) | 4 Zeilen
+Geänderte Pfade:
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   M /trunk/tracethread.cpp
+
+o Make numeric integration the default behavior  an add a command line option to choose epicycle
+o Rename startValues to initialValues to avoid confusion
+o Correct the initial UVW values for the solar motion in the LSR and the for the galactic rotation
+o Make sure the original (measured) values are processed exactly once (in the very first thread when processing the loop the first time)
+------------------------------------------------------------------------
+r16 | ifg | 2013-11-06 09:10:34 +0100 (Mi, 06. Nov 2013) | 6 Zeilen
+Geänderte Pfade:
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   M /trunk/tracethread.cpp
+   M /trunk/tracethread.h
+
+o Add numeric integration of equation of motion with the help of the GSL for calculating the orbit
+o Add a method to TraceThread to print the coordinates of its stars
+o Unify the printing methods such that they now take a  reference to a QTextStream as a parameter which has to be set up only once
+o Re-structure the coordinates and velocities of class StarGalacticParam to be better suited for numeric integration
+o Add a new attribute 'time' to StarGalacticParam
+o When using numeric integration set all current sigmas to zero because they do not make much sense
+------------------------------------------------------------------------
+r15 | ifg | 2013-07-31 14:55:09 +0200 (Mi, 31. Jul 2013) | 7 Zeilen
+Geänderte Pfade:
+   M /trunk
+   M /trunk/Doxyfile
+   A /trunk/doc
+   A /trunk/doc/qt.tag
+   A /trunk/doc/traceback.css
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   M /trunk/traceback.pro
+   A /trunk/tracethread.cpp
+   A /trunk/tracethread.h
+
+o Add thread support
+o Give more information if the input file is corrupt
+o New output format in StarParam::printValues()
+o StarGalacticParam::epicyclicOrbit() can now also calculate the orbit without calculating errors making it much faster
+o StarGalacticParam::B() will now return the matrix and not a reference so it can be used in different threads simultaneously
+o main.cpp will now process command line options using libpopt
+o Documentation will now cross-reference Qt
+------------------------------------------------------------------------
+r14 | ifg | 2013-07-25 14:41:20 +0200 (Do, 25. Jul 2013) | 3 Zeilen
+Geänderte Pfade:
+   M /trunk/Doxyfile
+   M /trunk/main.cpp
+   M /trunk/rng.h
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+
+o Add para0. RV0, PMa0, and PMd0 to class StarParam holding the original values from the file
+o Add functions to class StarParam and StarGalacticParam to vary error-prone attributes according to their standard deviation
+o Update documentation for rng.h
+------------------------------------------------------------------------
+r13 | ifg | 2013-07-24 09:10:11 +0200 (Mi, 24. Jul 2013) | 1 Zeile
+Geänderte Pfade:
+   M /trunk/rng.h
+
+o Add keyword substitution to rng.h
+------------------------------------------------------------------------
+r12 | ifg | 2013-07-24 09:07:02 +0200 (Mi, 24. Jul 2013) | 2 Zeilen
+Geänderte Pfade:
+   M /trunk/Doxyfile
+   M /trunk/main.cpp
+   A /trunk/rng.h
+   M /trunk/traceback.pro
+
+o Add the random number generator using the GSL
+o Remove the inclusion of iostream because QTextStream is now used exclusively
+------------------------------------------------------------------------
+r11 | ifg | 2013-07-19 10:34:28 +0200 (Fr, 19. Jul 2013) | 2 Zeilen
+Geänderte Pfade:
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+
+o Move fromFile and linenumber from StarGalacticParam to StarParam
+o Remove redundant HIP and rem from StarGalacticParam
+------------------------------------------------------------------------
+r10 | ifg | 2013-07-19 09:10:34 +0200 (Fr, 19. Jul 2013) | 11 Zeilen
+Geänderte Pfade:
+   M /trunk
+   M /trunk/Doxyfile
+   M /trunk/input.txt
+   M /trunk/main.cpp
+   A /trunk/pixmaps
+   A /trunk/pixmaps/aiu_logo_klein.png
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   M /trunk/traceback.pro
+
+o Set the parameters for AE Aur, µ Col, and ι Ori to the ones in the Hoogerwerf paper in input.txt
+o Use QTextStream with the UTF-8 codec in main.cpp for output
+o Modify main.cpp to investigate tree stars at the same time whether they have the same origin
+o Add a new attribute to StarParam for remarks, everything in the line of the input file after the HIP# is read into this field
+o HIP and rem are now also attributes of StarGalacticParam (this is somehow redundant and should be changed soon)
+o New function StarGalacticParam::printConstants() to print the constants used for the epicyclic orbit
+o Fix output functions to correctly print UTF-8 characters
+o Remove the documentation target from traceback.pro, configure qt-creator instead to run doxygen
+o Upgrade Doxygen to 1.8.4
+o Update documentation
+o Add the institute logo to the documentation
+------------------------------------------------------------------------
+r9 | ifg | 2012-12-18 11:52:18 +0100 (Di, 18. Dez 2012) | 2 Zeilen
+Geänderte Pfade:
+   M /trunk/input.txt
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+
+o Call epicyclicError() from epicyclicOrbit()
+o New function isCloseTo() to check whether another star is within reach of a certain confidence interval
+------------------------------------------------------------------------
+r8 | ifg | 2012-12-17 11:28:47 +0100 (Mo, 17. Dez 2012) | 6 Zeilen
+Geänderte Pfade:
+   M /trunk/Doxyfile
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+
+o Make matrix T, k, and initT() private members of StarGalacticParam
+o Same holds for function B(alpha,delta)
+o Do not call default constructor from another, this will not work!
+o Calculate error for position and velocities from either Gaussian error propagation or maximum error
+o New function to calculate the distance between two stars in either X, Y, or Z direction
+o More documentation
+------------------------------------------------------------------------
+r7 | ifg | 2012-12-07 10:42:05 +0100 (Fr, 07. Dez 2012) | 2 Zeilen
+Geänderte Pfade:
+   M /trunk
+   A /trunk/Doxyfile
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+   M /trunk/traceback.pro
+
+o Add documentation support via doxygen, 'make doc' will build it
+o Add members for error analysis to StarGalacticParam
+------------------------------------------------------------------------
+r6 | ifg | 2012-11-26 10:58:52 +0100 (Mo, 26. Nov 2012) | 5 Zeilen
+Geänderte Pfade:
+   M /trunk/input.txt
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+
+o Add new objects to input.txt, esp. AE Aur (HIP 24575) and mu Col (HIP 27204) which are supposed to "meet" in the past
+o Modify main.cpp to demonstrate the equivalence of 1 large step vs. many small steps
+o Add definition of galactic coordinates for equinox J2000.0
+o Add calculation of orbit with epicyclic equations
+o Store the velocities in StarGalacticParam in parsec/year instead of km/s, add static conversion functions
+------------------------------------------------------------------------
+r5 | ifg | 2012-11-15 14:50:45 +0100 (Do, 15. Nov 2012) | 3 Zeilen
+Geänderte Pfade:
+   M /trunk/input.txt
+   M /trunk/main.cpp
+   M /trunk/starparam.cpp
+   M /trunk/starparam.h
+
+o Add examples from the paper by Johnson, Soderblom: 1987AJ.....93..864J
+o Make the inability to read values from file fatal
+o New class StarGalacticParam that is to contain all parameters and functions we need
+------------------------------------------------------------------------
+r4 | ifg | 2012-10-09 14:04:32 +0200 (Di, 09. Okt 2012) | 1 Zeile
+Geänderte Pfade:
+   M /trunk
+   A /trunk/MatNorm.h
+   A /trunk/Matrix.h
+   A /trunk/VecNorm.h
+   A /trunk/Vector.h
+   A /trunk/input.txt
+   A /trunk/main.cpp
+   A /trunk/starparam.cpp
+   A /trunk/starparam.h
+   A /trunk/traceback.pro
+
+o First files
+------------------------------------------------------------------------
+r1 | ifg | 2012-10-09 13:43:10 +0200 (Di, 09. Okt 2012) | 2 Zeilen
+Geänderte Pfade:
+   A /trunk
+
+Create standard directories
+
+------------------------------------------------------------------------

@@ -1,0 +1,13 @@
+/* The standard CSS for doxygen 1.8.4 */
+
+h2.groupheader {
+	border-bottom: 1px solid #879ECB;
+	color: #FF8B38;
+	font-size: 150%;
+	font-weight: normal;
+	margin-top: 1.75em;
+	padding-top: 8px;
+	padding-bottom: 4px;
+	width: 100%;
+}
+

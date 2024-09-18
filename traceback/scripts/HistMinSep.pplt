@@ -1,0 +1,52 @@
+#!/usr/bin/pyxplot
+reset
+
+datafile="HIP24575+HIP27204_epicycle.out"
+datafile="J1932+1059+HIP81377.out"
+datafile="hoogerwerf.out"
+#datafile="test1.out"
+#datafile="nina.out"
+
+datapath="../"+datafile
+
+set terminal X11_multiWindow
+set width 15
+set size square
+
+bwidth1=0.2
+bwidth2=0.01
+#bwidth1=0.25
+#bwidth2=0.05
+
+# Minimum separation in parsec
+histogram f() datapath binwidth bwidth1
+
+# Elapsed to since minimum sep. in million years
+histogram g() datapath using (-$2*1e-6) binwidth bwidth2
+
+set ylabel "$\#$"
+
+set xlabel "$d_{min}$ [pc]"
+set title "Minmum separation"
+set xtics 0,5,30
+#set mxtics 0.5
+plot f(x)*bwidth1 with boxes color rgb(0,0.5,0) fc rgb(0,1,0) lw 0 title datafile
+
+set xlabel "$\tau$ [Myr]"
+set title "Corresponding flight times"
+set xtics 0,0.5,2.0
+set mxtics 0.05
+plot g(x) w boxes c rgb(0.5,0,0) fc rgb(1,0,0) lw 0 title datafile
+
+set title "Contour plot"
+set xlabel "$d_{min}$ [pc]"
+set ylabel "$\tau$ [Myr]"
+set c1label "probability per bin [???]"
+set xrange [0:10]
+set yrange [0:1.5]
+set c1range [*:*] renormalize noreverse
+set colmap rgb(c1,0,1-c1)
+
+cp(x,y)=f(x)*g(y)*bwidth1*bwidth2/3e6/3e6*10000
+
+#plot cp(x,y) w colormap notitle, cp(x,y) w contours notitle

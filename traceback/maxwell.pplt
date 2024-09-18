@@ -1,0 +1,38 @@
+reset
+
+# Maxwellsche Verteilungsfunktion
+maxwell_pdf(x)=sqrt(2./pi)*(x*x/a/a/a)*exp(-x*x/2./a/a)
+vmean=400.
+vmax=(vmean/2.)*sqrt(pi)
+c2=1./(vmax*vmax)
+c1=4*(c2*c2*c2/pi)**0.5
+
+maxwell_pdf_nina(x)=x*x*c1*exp(-x*x*c2)
+
+#maxtitle="$\displaystyle\frac{1}{a^3}\,\sqrt{\frac{2}{\pi}}\, x^2 \exp\left\{ -\frac{x^2}{2 a^2}\right\}$ mit $a = \sigma$ = 265 km s$^{-1}$"
+maxtitle="Maxwell distribution (1--D $\sigma$ = 265 km s$^{-1}$)"
+ninatitle="Distribution Nina $\langle v \rangle$ = 400 km s$^{-1}$"
+
+# 1-D Sigma rms nach Hobbs et al.
+a=265.
+
+#datafile="maxwell.out"
+datafile="test.out"
+numsamples=1000000
+
+set width 20
+
+bwidth=0.1
+
+histogram f() datafile binwidth bwidth
+
+#set logscale x
+scalefactor=1000.
+#set xrange [0:1200]
+
+set xlabel "3--D speed (km s$^{-1}$)"
+set ylabel "Probability density (10$^{-3}$ per km s$^{-1}$)"
+
+plot scalefactor*f(x)/numsamples with boxes color rgb(0,1,0) fc rgb(0,1,0) notitle#,\
+#     scalefactor*maxwell_pdf(x) w lines color rgb(1,0,0) title maxtitle#,\
+#	 scalefactor*maxwell_pdf_nina(x) w lines color rgb(0,0,1) title ninatitle

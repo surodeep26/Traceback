@@ -1,0 +1,34 @@
+#!/usr/bin/gnuplot -persist
+reset
+
+# This script will produce a 3D plot of orbits.
+# With the QT terminal the plot can be turned around
+# with the mouse.
+
+fileout=0
+
+data="orbit"
+datafile=data . ".out"
+datapath="../../" . datafile
+
+
+#set multiplot
+#set width 12
+set size square
+set term qt 0 enhanced font "CMU Serif,11"
+
+set title "3D orbit"
+set xlabel "X [pc]"
+set ylabel "Y [pc]"
+set zlabel "Z [pc]"
+#set key top left
+
+#set xtics 2
+#set mxtics 1
+#set ytics 2
+#set mytics 1
+
+splot \
+     datapath using  ($1-8500.):2:3 with lines title 'Numeric',\
+     datapath using  ($4-8500.):5:6 with lines title 'Epicycle'
+#     datapath using  ($7-8500.):8:9 with lines title 'Linear'

@@ -1,0 +1,53 @@
+#!/usr/bin/pyxplot
+reset
+
+# This script will produce Figure 1 from Tetzlaff et al.: Birth places of ..., MNRAS 402, 2369-2387 (2010)
+
+fileout=0
+
+data="TetzlaffNewPM"
+datafile=data + ".out"
+datapath="../" + datafile
+
+if (fileout==0) {
+	set terminal X11_singleWindow
+} else {
+	set terminal png
+	set output '%s.png'%(data)
+}
+
+set multiplot
+set width 10
+set size square
+set fontsize 1.3
+
+# bin width for minimum distance [pc]
+bwidth1=0.5
+
+# bin width for corresponding flight times [Myr]
+bwidth2=0.01
+
+# Minimum separation in parsec
+histogram f() datapath binwidth bwidth1
+
+# Elapsed to since minimum sep. in million years
+histogram g() datapath using (-$2*1e-6) binorigin 0.005 binwidth bwidth2
+
+set ylabel "$\#$"
+
+set xlabel "$d_{min}$ [pc]"
+set title "Distribution of minmum separations between $\zeta$ Oph and PSR J1932+10"
+set xtics 5
+#set mxtics 0.5
+#set ytics 50
+#set mytics 10
+plot [0:30] [:] f(x)*bwidth1 with boxes color rgb(0,1,0) linewidth 0 fc rgb(0,1,0) title 'Tetzlaff 2010'
+
+set xlabel "$\tau$ [Myr]"
+set title "Corresponding flight times"
+set xtics 0.5
+set mxtics 0.05
+#set ytics 20
+#set mytics 50
+set origin 14,0
+plot [0:2] [:] g(x)*bwidth2 w boxes c rgb(1,0,0) lw 0 fc rgb(1,0,0) title 'Tetzlaff 2010'

@@ -1,0 +1,39 @@
+#!/usr/bin/gnuplot -persist
+reset
+datafile="HIP24575+HIP27204_epicycle.out"
+datafile="J1932+1059+HIP81377.out"
+datafile="hoogerwerf.out"
+#datafile="nina.out"
+
+datapath = "../" . datafile
+
+# Plot the distribution of the time points 
+# when the minimum separation was reached
+# (second row in data file)
+
+width=0.01	# [Myr]
+min=0.6		# [Myr]
+max=1.4		# [Myr]
+
+#function used to map a value to the intervals
+#hist(x,width)=width*floor(x/width)+width/2.0
+#hist(x,width)=width*(int(x/width)+0.5)
+hist(x,width)=width*floor((x+(width/2.))/width)
+#set term png #output terminal and file
+#set output "histogram.png"
+set term qt 2 enhanced font "Arial,11"
+set xrange [min:max]
+set yrange [0:]
+
+#to put an empty boundary around the
+#data inside an autoscaled graph.
+#set offset graph 0.05,0.05,0.05,0.0
+#set xtics min,(max-min)/8,max
+set boxwidth width*1.0
+set style fill solid 0.6 #fillstyle
+set tics out nomirror
+set xlabel "τ [Myr]"
+set ylabel "#"
+set title "Corresponding flight times to minimum distance"
+#count and plot
+plot datapath u (hist(-$2*1e-6,width)):(1.0) smooth freq w boxes lc rgb"red" title datafile

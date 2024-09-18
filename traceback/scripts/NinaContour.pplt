@@ -1,0 +1,49 @@
+#!/usr/bin/pyxplot
+reset
+
+# This script will produce Figure 1 from Tetzlaff et al.: Birth places of ..., MNRAS 402, 2369-2387 (2010)
+
+fileout=0
+
+datafile="HoogerwerfNina.out"
+datapath="../"+datafile
+
+if (fileout==0) {
+	set terminal X11_singleWindow
+} else {
+	set terminal png
+}
+
+set width 10
+set size square
+set fontsize 1.3
+
+bwidth1=2
+bwidth2=0.02
+
+# Minimum separation in parsec
+histogram f() datapath binwidth bwidth1
+
+# Elapsed to since minimum sep. in million years
+histogram g() datapath using (-$2*1e-6) binwidth bwidth2
+
+set title "$\tau$ -- $d_{min}$ contour plot"
+set xlabel "$d_{min}$ [pc]"
+set ylabel "$\tau$ [Myr]"
+set c1label "probability per bin [???]"
+set xrange [0:40]
+set yrange [0:2]
+set xtics 10
+set mxtics 1
+set ytics 0.5
+set c1range [*:*] renormalize noreverse
+set colmap rgb(c1,0,1-c1)
+
+cp(x,y)=f(x)*g(y)*bwidth1*bwidth2/3e6/3e6*10000
+
+if (fileout==1) {
+	set output 'contournina.png'
+}
+
+plot cp(x,y) w colormap notitle, \
+     cp(x,y) w contours notitle

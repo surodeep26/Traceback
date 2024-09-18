@@ -1,0 +1,33 @@
+#!/usr/bin/gnuplot -persist
+reset
+
+# This script will produce a scatter plot of RA vs. Dec
+# when using 3 objects
+
+fileout=0
+
+data="orbit"
+datafile=data . ".out"
+datapath="../../" . datafile
+
+
+#set multiplot
+#set width 12
+set size square
+set term qt 1 enhanced font "CMU Serif,14"
+
+set title "3D orbit"
+set xlabel "X [pc]"
+set ylabel "Y [pc]"
+set zlabel "Z [pc]"
+#set key top left
+
+#set xtics 2
+#set mxtics 1
+#set ytics 2
+#set mytics 1
+
+plot \
+     datapath using  ($1-8500.):2 with lines title 'Numeric',\
+     datapath using  ($4-8500.):5 with lines title 'Epicycle'
+#     datapath using  ($7):8 with lines title 'Linear'

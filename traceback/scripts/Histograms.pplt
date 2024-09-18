@@ -1,0 +1,59 @@
+#!/usr/bin/pyxplot
+reset
+
+# This script will produce histograms of minimum distances and corresponding flight times
+# without special scaling
+
+fileout=0
+
+data="Hoogerwerf"
+datafile=data + ".out"
+datapath="../" + datafile
+
+if (fileout==0) {
+	set terminal X11_singleWindow
+} else {
+	set terminal png
+	set output '%s.png'%(data)
+}
+
+set multiplot
+set width 10
+set size square
+set fontsize 1.3
+
+# bin width for minimum distance [pc]
+bwidth1=1.
+
+# bin width for corresponding flight times [Myr]
+bwidth2=0.02
+
+# Minimum separation in parsec
+histogram f() datapath binwidth bwidth1
+
+# Elapsed to since minimum sep. in million years
+histogram g() datapath using (-$2*1e-6) binorigin 0.005 binwidth bwidth2
+#histogram g() datapath using (-$2*1e-6) binwidth bwidth2
+
+set ylabel "relative frequency density $[\mathrm{kpc}^{-1}]$"
+
+set xlabel "$d_{min}$ [pc]"
+set title "Distribution of minmum separations"
+#set xtics 5
+#set mxtics 0.5
+#set ytics 50
+#set mytics 10
+plot f(x)/3000. with boxes color rgb(0.4,0.4,0.4) linewidth 0 fc rgb(0.7,0.7,0.7) notitle
+#     f(x)*bwidth1 with lines color rgb(0,0,1) notitle
+
+set ylabel "relative frequency density $[\mathrm{Myr}^{-1}]$"
+
+set xlabel "$\tau$ [Myr]"
+set title "Corresponding flight times"
+#set xtics 0.5
+#set mxtics 0.05
+#set ytics 20
+#set mytics 50
+set origin 14,0
+plot g(x)/3000000. w boxes c rgb(0.4,0.4,0.4) lw 0 fc rgb(0.7,0.7,0.7) notitle
+#     g(x)*bwidth2 w lines c rgb(0,0,1) notitle
