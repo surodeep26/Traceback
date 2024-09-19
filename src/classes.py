@@ -1,11 +1,38 @@
 # classes.py
 from astropy.coordinates import SkyCoord, Angle
-from astropy.table import Table
-from .functions import get_stars_in_region
+from astropy.table import Table, vstack
+from .functions import get_stars_in_region, fs4giesler
 import contextlib
 import os
 from astropy import units as u
+import configparser
+import time
 
+class Traceback:
+    """
+    Example usage
+    >>> trace = Trace(195633325090480896, 195633320791780608)
+    >>> trace.create_input_file()
+    """
+    def __init__(self, sourceID1, sourceID2) -> None:
+        self.sourceID1 = sourceID1
+        self.sourceID2 = sourceID2
+        self.stars = (Star(sourceID1), Star(sourceID2))
+        self.path = "giessler_traceback/two_trace/"
+        pass
+    def create_input_file(self, path=None):
+        if not path:
+            path = self.path
+        two_stars = vstack([self.stars[0].info,
+                            self.stars[1].info])
+        g = fs4giesler(two_stars)
+        output_file = os.path.join(path,
+                                   f"input.tsv"
+                                #    f"input_{self.sourceID1}_{self.sourceID2}.tsv"
+                                   )
+        
+        g.write(output_file, format='csv', delimiter='\t', overwrite=True)
+        print(f"Input file created at {output_file}")
 
 class Star:
     """
@@ -65,3 +92,44 @@ class RegionStars:
         stars = self.stars
         star = stars[stars['Source'] == gaiaID]
         return star
+class SimulationConfig:
+    def __init__(self, config_file):
+        self.config_file = config_file
+        self.config = configparser.ConfigParser(allow_no_value=True, delimiters=("=",))
+        self.config.optionxform = str  # Preserve case sensitivity of keys
+        self.load_config()
+
+    def load_config(self):
+        """Loads the configuration file into the config parser."""
+        with open(self.config_file, 'r') as file:
+            self.config.read_file(file)
+
+    def save_config(self, output_file=None):
+        """Saves the modified configuration back to the file."""
+        if output_file is None:
+            output_file = self.config_file
+        with open(output_file, 'w') as file:
+            self.config.write(file, space_around_delimiters=False)
+
+    def __getattr__(self, name):
+        """Dynamically get attribute values from the [Simulation] section."""
+        section = 'Simulation'
+        if section in self.config:
+            # Compare in uppercase to handle case-insensitive matching
+            for key in self.config[section]:
+                if key.upper() == name.upper():
+                    return self.config[section][key]
+        raise AttributeError(f"'SimulationConfig' object has no attribute '{name}'")
+
+    def __setattr__(self, name, value):
+        """Dynamically set attribute values in the [Simulation] section."""
+        if name in ['config_file', 'config']:
+            super().__setattr__(name, value)  # Allow normal setting of non-config attributes
+        else:
+            section = 'Simulation'
+            if section in self.config:
+                for key in self.config[section]:
+                    if key.upper() == name.upper():
+                        self.config[section][key] = str(value)
+                        return
+            raise AttributeError(f"'SimulationConfig' object has no attribute '{name}'")

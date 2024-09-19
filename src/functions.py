@@ -7,6 +7,8 @@ from astroquery.vizier import Vizier
 import numpy as np
 import time
 import warnings
+import subprocess
+
 
 def get_catalog(name):
     '''
@@ -222,3 +224,14 @@ def best_params(matches_file):
     table['SkyCoord'] = skycoords
     table.remove_column('SkyCoord')
     return table
+
+
+# Function to execute a command in the terminal
+def execute_command(command):
+    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    stdout, stderr = process.communicate()
+
+    if process.returncode == 0:
+        print(f"Command executed successfully:\n{stdout.decode()}")
+    else:
+        print(f"Error occurred:\n{stderr.decode()}")
