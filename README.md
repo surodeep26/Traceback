@@ -28,7 +28,7 @@ https://www.mrao.cam.ac.uk/surveys/snrs/snrs.G166.0+4.3.html
 195633320791780608, 195633325090480896
 
 ## Workflow:
-
+Aim: to trace back any 2 Gaia stars.
 ### Step 1: Create the input.tsv file
 This file conatins the two stars to be traced back. The Gaia source IDs are required for the two stars.
 Using the commands:
