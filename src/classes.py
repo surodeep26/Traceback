@@ -18,7 +18,7 @@ class Traceback:
         self.sourceID1 = sourceID1
         self.sourceID2 = sourceID2
         self.stars = (Star(sourceID1), Star(sourceID2))
-        self.path = "giessler_traceback/two_trace/"
+        self.path = "giessler_traceback"
         pass
     def create_input_file(self, path=None):
         if not path:
@@ -26,7 +26,7 @@ class Traceback:
         two_stars = vstack([self.stars[0].info,
                             self.stars[1].info])
         g = fs4giesler(two_stars)
-        output_file = os.path.join(path,
+        output_file = os.path.join(path,'two_trace'
                                    f"input.tsv"
                                 #    f"input_{self.sourceID1}_{self.sourceID2}.tsv"
                                    )
