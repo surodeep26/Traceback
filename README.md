@@ -66,3 +66,39 @@ To run the simulation:
 ```python
 execute_command('cd giessler_traceback ; examples/trace/traceback two_trace/trace.conf')
 ```
+## Project 2: SNR G180.0−1.7
+Green's catalog: https://www.mrao.cam.ac.uk/surveys/snrs/snrs.data.html
+
+on vizier table "VII/272/snrs": https://vizier.cds.unistra.fr/viz-bin/VizieR?-source=VII/272
+
+### Summary SNR 147
+[B. Dinçel et al. 2015](https://ui.adsabs.harvard.edu/abs/2015MNRAS.448.3196D/abstract) 
+
+[https://www.mrao.cam.ac.uk/surveys/snrs/snrs.G166.0+4.3.html](https://www.mrao.cam.ac.uk/surveys/snrs/snrs.G180.0-1.7.html)
+
+| **Parameter**               | **Value**                                |
+|-----------------------------|------------------------------------------|
+| **Right Ascension**         | 05 39 00                                 |
+| **Declination**             | +27 50                                    |
+| **Size (arcmin)**          | 180                                     |
+| **Type**                    | S                                        |
+| **Flux Density at 1 GHz (Jy)** | 65                                        |
+| **Spectral Index**          | varies                                    |
+| **Radio**                   | Large faint shell, with spectral break   |
+| **Optical**                 | Wispy ring                    |
+| **X-ray**                   | Possible detection                     |
+|**Point sources**            | Pulsar within boundary, with faint wind nebula|
+| **Distance**                | Various observations suggest about 1.2 kpc |
+
+## Stars in question:
+
+HD 37424, PSR J0538+2817 
+
+3441732292729818752, n/a
+
+| **Object**        | **Proper Motion in RA (μα*)** | **Proper Motion in Dec (μδ)** |
+|-------------------|------------------------------|------------------------------|
+| **HD 37424 (DR2?)**       | 10.0 ± 0.8                   | −5.9 ± 0.6                   |
+| **HD 37424 (DR3)**       | 12.228 ± 0.036                   | -9.407 ± 0.017                   |
+| **Pulsar (old)**         | −24.4 ± 0.1                  | 57.2 ± 0.1                   |
+| **Pulsar (new)**         | −24.4 ± 0.1                  | 57.2 ± 0.1                   |
