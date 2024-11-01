@@ -27,6 +27,24 @@ https://www.mrao.cam.ac.uk/surveys/snrs/snrs.G166.0+4.3.html
 
 195633320791780608, 195633325090480896
 
+## Stars in the region:
+
+Region is defined as 1 deg around the center at: 
+
+81.625 deg, 42.93333333 deg
+has 130,096 sources
+
+and distance range (with RUWE < 1.4 and PlxQ > 5):
+
+2.5 kpc to 5 kpc
+has 4,749 sources
+
+
+
+
+
+
+
 ## Workflow:
 Aim: to trace back any 2 Gaia stars.
 ### Step 1: Create the input.tsv file
@@ -48,8 +66,8 @@ sample_config = 'sample_trace.conf'
 config = SimulationConfig(sample_config)
 
 # Change parameters with attributes
-config.orbits = 100_000  # This updates the "Orbits" key in the [Simulation] section
-config.steps = 1000      # This updates the "Steps" key
+config.orbits = 100_000  
+config.steps = 1000     
 config.stepsize = -100
 config.width = 100
 config.star1 = '"two_trace/input.tsv#2"'

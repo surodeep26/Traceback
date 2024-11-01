@@ -8,6 +8,15 @@ from astropy import units as u
 import configparser
 import time
 
+class G166:
+    def __init__(self):
+        self.name = 'G166'
+        self.radius = Angle(60*u.arcmin)
+        # Specify units for ra (hours) and dec (degrees)
+        self.SkyCoord = SkyCoord(ra='05 26 30', 
+                                 dec='+42 56 00', 
+                                 unit=(u.hourangle, u.deg)
+                                 )
 class Traceback:
     """
     Example usage
