@@ -27,6 +27,10 @@ https://www.mrao.cam.ac.uk/surveys/snrs/snrs.G166.0+4.3.html
 
 195633320791780608, 195633325090480896
 
+in the input file they are at line nos
+
+3449, 3587 respectively
+
 ## Stars in the region:
 
 Region is defined as 1 deg around the center at: 
